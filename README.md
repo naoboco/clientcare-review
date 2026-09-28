@@ -52,7 +52,35 @@ Python is not required for the initial architecture and will only be introduced 
 
 - [CRM and case-management research](docs/01-crm-research.md)
 - [Requirements and user workflow](docs/02-requirements-and-user-workflow.md)
-- [Visual identity](docs/03-visual-identity.md)\n- [Main page wireframes](docs/04-wireframes.md)\n- [Database structure](docs/05-database-schema.md)\n- [Reusable UI component system](docs/06-component-system.md)
+- [Visual identity](docs/03-visual-identity.md)
+- [Main page wireframes](docs/04-wireframes.md)
+- [Database structure](docs/05-database-schema.md)
+- [Reusable UI component system](docs/06-component-system.md)
+
+## Local development
+
+Requirements: Node.js 22.12 or newer and npm.
+
+```bash
+git clone https://github.com/naoboco/clientcare-review.git
+cd clientcare-review
+npm install
+cp .env.example .env
+```
+
+Start the API in one terminal:
+
+```bash
+npm run dev:server
+```
+
+Start the React application in a second terminal:
+
+```bash
+npm run dev:client
+```
+
+The application runs at `http://localhost:5173`. The API health endpoint is available at `http://localhost:3000/api/health`.
 
 ## Current status
 
@@ -62,8 +90,8 @@ Python is not required for the initial architecture and will only be introduced 
 - [x] Create wireframes for the main pages
 - [x] Design the database structure
 - [x] Design a reusable UI component system
-- [ ] Set up the React and TypeScript front end
-- [ ] Set up the Node.js and Express back end
+- [x] Set up the React and TypeScript front end
+- [x] Set up the Node.js and Express back end
 - [ ] Create the PostgreSQL database and REST API
 - [ ] Implement registration, login and protected routes
 - [ ] Develop client profile creation, viewing, editing and archiving
@@ -76,4 +104,3 @@ Python is not required for the initial architecture and will only be introduced 
 ## Repository
 
 Final project for the Developers Institute Full-Stack & AI Bootcamp.
-
