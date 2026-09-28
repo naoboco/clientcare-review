@@ -1,3 +1,5 @@
+begin;
+
 create table users (
   id bigint generated always as identity primary key,
   name text not null,
@@ -78,8 +80,9 @@ before update on users
 for each row
 execute function set_updated_at();
 
+commit;
+
 create trigger clients_set_updated_at
 before update on clients
 for each row
 execute function set_updated_at();
-

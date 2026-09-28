@@ -138,7 +138,7 @@ export type FollowUpStatus =
   | 'archived'
 
 export interface Client {
-  id: number
+  id: string
   firstName: string
   lastName: string
   email: string
@@ -190,7 +190,7 @@ It owns the status label, icon and color mapping so pages cannot represent the s
 ```ts
 interface ClientTableProps {
   clients: Client[]
-  onOpenClient: (clientId: number) => void
+  onOpenClient: (clientId: string) => void
 }
 ```
 
@@ -309,4 +309,3 @@ Buttons that trigger network operations must prevent duplicate submissions while
 - Domain types drafted: complete.
 - State ownership defined: complete.
 - Accessibility contract defined: complete.
-
