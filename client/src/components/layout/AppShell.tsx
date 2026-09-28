@@ -1,4 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { logout } from '../../features/auth/authSlice'
 
 const navigation = [
   { label: 'Dashboard', to: '/dashboard' },
@@ -6,6 +8,21 @@ const navigation = [
 ]
 
 export function AppShell() {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const user = useAppSelector((state) => state.auth.user)
+  const initials = user?.name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase() ?? 'CC'
+
+  async function handleLogout() {
+    await dispatch(logout())
+    navigate('/login', { replace: true })
+  }
+
   return (
     <div className="app-shell">
       <aside className="sidebar">
@@ -27,10 +44,10 @@ export function AppShell() {
         </nav>
 
         <div className="sidebar-footer">
-          <div className="avatar" aria-hidden="true">NC</div>
+          <div className="avatar" aria-hidden="true">{initials}</div>
           <div>
-            <strong>Coordinator</strong>
-            <span>Demo workspace</span>
+            <strong>{user?.name ?? 'Coordinator'}</strong>
+            <span>{user?.email ?? 'ClientCare workspace'}</span>
           </div>
         </div>
       </aside>
@@ -38,7 +55,7 @@ export function AppShell() {
       <div className="workspace">
         <header className="topbar">
           <span className="environment-label">Fictional data only</span>
-          <NavLink className="text-link" to="/login">Log out</NavLink>
+          <button className="text-link text-button" type="button" onClick={handleLogout}>Log out</button>
         </header>
         <main className="page-content">
           <Outlet />
@@ -47,4 +64,3 @@ export function AppShell() {
     </div>
   )
 }
-

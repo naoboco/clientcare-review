@@ -7,6 +7,8 @@ config({
   quiet: true,
 })
 
+const developmentJwtSecret = 'development-only-change-this-secret-123456789'
+
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().int().positive().default(3000),
@@ -20,7 +22,15 @@ const envSchema = z.object({
     .string()
     .regex(/^[A-Za-z_]+\/[A-Za-z_]+$/)
     .default('Asia/Jerusalem'),
-  DEVELOPMENT_USER_ID: z.string().regex(/^\d+$/).optional(),
+  JWT_SECRET: z.string().min(32).default(developmentJwtSecret),
+}).superRefine((value, context) => {
+  if (value.NODE_ENV === 'production' && value.JWT_SECRET === developmentJwtSecret) {
+    context.addIssue({
+      code: 'custom',
+      path: ['JWT_SECRET'],
+      message: 'A unique JWT_SECRET is required in production',
+    })
+  }
 })
 
 export const env = envSchema.parse(process.env)

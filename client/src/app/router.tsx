@@ -1,5 +1,7 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 import { AppShell } from '../components/layout/AppShell'
+import { ProtectedRoute } from '../features/auth/ProtectedRoute'
+import { PublicOnlyRoute } from '../features/auth/PublicOnlyRoute'
 import { ClientsPage } from '../pages/ClientsPage'
 import { DashboardPage } from '../pages/DashboardPage'
 import { LoginPage } from '../pages/LoginPage'
@@ -13,39 +15,49 @@ export const router = createBrowserRouter([
     element: <Navigate to="/dashboard" replace />,
   },
   {
-    path: '/login',
-    element: <LoginPage />,
-  },
-  {
-    path: '/register',
-    element: <RegisterPage />,
-  },
-  {
-    element: <AppShell />,
+    element: <PublicOnlyRoute />,
     children: [
       {
-        path: '/dashboard',
-        element: <DashboardPage />,
+        path: '/login',
+        element: <LoginPage />,
       },
       {
-        path: '/clients',
-        element: <ClientsPage />,
+        path: '/register',
+        element: <RegisterPage />,
       },
+    ],
+  },
+  {
+    element: <ProtectedRoute />,
+    children: [
       {
-        path: '/clients/new',
-        element: <WorkspacePage title="Create client" />,
-      },
-      {
-        path: '/clients/:clientId',
-        element: <WorkspacePage title="Client profile" />,
-      },
-      {
-        path: '/clients/:clientId/edit',
-        element: <WorkspacePage title="Edit client" />,
-      },
-      {
-        path: '/clients/:clientId/analyze',
-        element: <WorkspacePage title="Analyze email" />,
+        element: <AppShell />,
+        children: [
+          {
+            path: '/dashboard',
+            element: <DashboardPage />,
+          },
+          {
+            path: '/clients',
+            element: <ClientsPage />,
+          },
+          {
+            path: '/clients/new',
+            element: <WorkspacePage title="Create client" />,
+          },
+          {
+            path: '/clients/:clientId',
+            element: <WorkspacePage title="Client profile" />,
+          },
+          {
+            path: '/clients/:clientId/edit',
+            element: <WorkspacePage title="Edit client" />,
+          },
+          {
+            path: '/clients/:clientId/analyze',
+            element: <WorkspacePage title="Analyze email" />,
+          },
+        ],
       },
     ],
   },
@@ -54,4 +66,3 @@ export const router = createBrowserRouter([
     element: <NotFoundPage />,
   },
 ])
-

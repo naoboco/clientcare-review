@@ -178,6 +178,13 @@ p {
   text-decoration: underline;
 }
 
+.text-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
 .page-content {
   width: min(1180px, 100%);
   margin: 0 auto;
@@ -374,6 +381,27 @@ input:disabled {
   font-weight: 700;
 }
 
+.field-hint {
+  color: var(--color-slate-500);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.form-error {
+  padding: 11px 12px;
+  border: 1px solid #fda29b;
+  border-radius: var(--radius-sm);
+  color: var(--color-red-700);
+  background: var(--color-red-100);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.auth-loading {
+  color: #fff;
+  font-weight: 700;
+}
+
 .auth-switch {
   margin: var(--space-6) 0 0;
   text-align: center;
@@ -442,4 +470,3 @@ input:disabled {
     padding: 24px 16px;
   }
 }
-

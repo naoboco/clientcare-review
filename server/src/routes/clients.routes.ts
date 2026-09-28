@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { ApiError } from '../lib/api-error.js'
-import { requireCoordinator } from '../middleware/coordinator.middleware.js'
+import { requireCoordinator } from '../middleware/auth.middleware.js'
 import {
   archiveClient,
   createClient,
@@ -76,4 +76,3 @@ clientsRouter.post('/:clientId/restore', async (request, response) => {
 
   response.status(200).json({ data: client })
 })
-
