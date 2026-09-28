@@ -3,6 +3,8 @@ import { AppShell } from '../components/layout/AppShell'
 import { ProtectedRoute } from '../features/auth/ProtectedRoute'
 import { PublicOnlyRoute } from '../features/auth/PublicOnlyRoute'
 import { ClientsPage } from '../pages/ClientsPage'
+import { ClientDetailPage } from '../pages/ClientDetailPage'
+import { ClientFormPage } from '../pages/ClientFormPage'
 import { DashboardPage } from '../pages/DashboardPage'
 import { LoginPage } from '../pages/LoginPage'
 import { NotFoundPage } from '../pages/NotFoundPage'
@@ -43,15 +45,15 @@ export const router = createBrowserRouter([
           },
           {
             path: '/clients/new',
-            element: <WorkspacePage title="Create client" />,
+            element: <ClientFormPage />,
           },
           {
             path: '/clients/:clientId',
-            element: <WorkspacePage title="Client profile" />,
+            element: <ClientDetailPage />,
           },
           {
             path: '/clients/:clientId/edit',
-            element: <WorkspacePage title="Edit client" />,
+            element: <ClientFormPage />,
           },
           {
             path: '/clients/:clientId/analyze',

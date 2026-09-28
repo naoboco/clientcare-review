@@ -58,6 +58,7 @@ Python is not required for the initial architecture and will only be introduced 
 - [Reusable UI component system](docs/06-component-system.md)
 - [PostgreSQL and REST API](docs/07-rest-api.md)
 - [Authentication](docs/08-authentication.md)
+- [Client profiles and follow-up alerts](docs/09-client-profile-and-follow-up.md)
 
 ## Local development
 
@@ -105,8 +106,8 @@ The fictional local account created by `npm run db:setup` uses `coordinator@clie
 - [x] Set up the Node.js and Express back end
 - [x] Create the PostgreSQL database and REST API
 - [x] Implement registration, login and protected routes
-- [ ] Develop client profile creation, viewing, editing and archiving
-- [ ] Implement follow-up date management and overdue alerts
+- [x] Develop client profile creation, viewing, editing and archiving
+- [x] Implement follow-up date management and overdue alerts
 - [ ] Integrate structured Gemini email analysis
 - [ ] Implement human review and confirmation
 - [ ] Create fictional profiles and emails
