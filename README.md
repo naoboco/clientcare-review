@@ -52,16 +52,16 @@ Python is not required for the initial architecture and will only be introduced 
 
 - [CRM and case-management research](docs/01-crm-research.md)
 - [Requirements and user workflow](docs/02-requirements-and-user-workflow.md)
-- [Visual identity](docs/03-visual-identity.md)
+- [Visual identity](docs/03-visual-identity.md)\n- [Main page wireframes](docs/04-wireframes.md)\n- [Database structure](docs/05-database-schema.md)\n- [Reusable UI component system](docs/06-component-system.md)
 
 ## Current status
 
 - [x] Research similar CRM and case-management platforms
 - [x] Define project requirements and user workflow
 - [x] Define visual identity, colors, typography and interface style
-- [ ] Create wireframes for the main pages
-- [ ] Design the database structure
-- [ ] Design a reusable UI component system
+- [x] Create wireframes for the main pages
+- [x] Design the database structure
+- [x] Design a reusable UI component system
 - [ ] Set up the React and TypeScript front end
 - [ ] Set up the Node.js and Express back end
 - [ ] Create the PostgreSQL database and REST API
