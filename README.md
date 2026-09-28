@@ -57,6 +57,7 @@ Python is not required for the initial architecture and will only be introduced 
 - [Database structure](docs/05-database-schema.md)
 - [Reusable UI component system](docs/06-component-system.md)
 - [PostgreSQL and REST API](docs/07-rest-api.md)
+- [Authentication](docs/08-authentication.md)
 
 ## Local development
 
@@ -90,6 +91,8 @@ npm run dev:client
 
 The application runs at `http://localhost:5173`. The API health endpoint is available at `http://localhost:3000/api/health`.
 
+The fictional local account created by `npm run db:setup` uses `coordinator@clientcare.demo` and password `ClientCareDemo2026!`.
+
 ## Current status
 
 - [x] Research similar CRM and case-management platforms
@@ -101,7 +104,7 @@ The application runs at `http://localhost:5173`. The API health endpoint is avai
 - [x] Set up the React and TypeScript front end
 - [x] Set up the Node.js and Express back end
 - [x] Create the PostgreSQL database and REST API
-- [ ] Implement registration, login and protected routes
+- [x] Implement registration, login and protected routes
 - [ ] Develop client profile creation, viewing, editing and archiving
 - [ ] Implement follow-up date management and overdue alerts
 - [ ] Integrate structured Gemini email analysis

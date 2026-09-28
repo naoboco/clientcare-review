@@ -31,10 +31,14 @@ export const errorHandler: ErrorRequestHandler = (
     return
   }
 
+  if (error.code === '23505') {
+    response.status(409).json({ error: 'An account with this email already exists' })
+    return
+  }
+
   if (env.NODE_ENV !== 'test') {
     console.error(error)
   }
 
   response.status(500).json({ error: 'Internal server error' })
 }
-

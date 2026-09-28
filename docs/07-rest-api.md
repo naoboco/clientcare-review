@@ -24,7 +24,7 @@ Apply the initial schema and fictional development coordinator:
 npm run db:setup
 ```
 
-The seed creates coordinator ID `1`. Until JWT authentication is implemented, `.env` may contain `DEVELOPMENT_USER_ID=1`. This development identity is ignored when `NODE_ENV=production`.
+The seed creates a fictional coordinator account for local authentication tests.
 
 ## Health endpoints
 
@@ -93,7 +93,7 @@ The server trims text, normalizes email to lowercase, validates calendar dates a
 
 Repository queries always include both client ID and coordinator ID. A coordinator cannot retrieve, update, archive or restore a client owned by another account simply by guessing its ID.
 
-The temporary development identity exists only to test the API before the authentication milestone. The next implementation step will replace it with verified JWT authentication.
+The API resolves the coordinator ID from a verified session token. No request body, URL parameter or custom development header may choose the profile owner.
 
 ## Connection strategy
 
