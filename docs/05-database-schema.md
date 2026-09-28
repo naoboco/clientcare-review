@@ -100,6 +100,8 @@ A client is archived by setting `archived_at`. Normal application actions never 
 
 Shared family email addresses are possible, so client email is indexed but not unique.
 
+PostgreSQL `bigint` identifiers are serialized as strings in JSON responses. This avoids precision loss in JavaScript for identifiers above `Number.MAX_SAFE_INTEGER`.
+
 ## Table: `ai_analyses`
 
 Stores confirmed analysis results for audit and history.
@@ -203,4 +205,3 @@ They can be added without changing the three-table core.
 - Index strategy defined: complete.
 - AI confirmation storage defined: complete.
 - Privacy retention decision defined: complete.
-

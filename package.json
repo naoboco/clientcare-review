@@ -11,10 +11,13 @@
     "dev:client": "npm run dev --workspace client",
     "dev:server": "npm run dev --workspace server",
     "build": "npm run build --workspaces",
-    "typecheck": "npm run typecheck --workspaces"
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspace server",
+    "db:schema": "npm run db:schema --workspace server",
+    "db:seed": "npm run db:seed --workspace server",
+    "db:setup": "npm run db:schema && npm run db:seed"
   },
   "engines": {
     "node": ">=22.12.0"
   }
 }
-

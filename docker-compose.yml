@@ -1,0 +1,22 @@
+services:
+  database:
+    image: postgres:18-alpine
+    container_name: clientcare-database
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: clientcare
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d clientcare"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - clientcare-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  clientcare-postgres-data:
+

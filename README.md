@@ -56,6 +56,7 @@ Python is not required for the initial architecture and will only be introduced 
 - [Main page wireframes](docs/04-wireframes.md)
 - [Database structure](docs/05-database-schema.md)
 - [Reusable UI component system](docs/06-component-system.md)
+- [PostgreSQL and REST API](docs/07-rest-api.md)
 
 ## Local development
 
@@ -66,6 +67,13 @@ git clone https://github.com/naoboco/clientcare-review.git
 cd clientcare-review
 npm install
 cp .env.example .env
+```
+
+Start PostgreSQL and initialize the schema:
+
+```bash
+docker compose up -d database
+npm run db:setup
 ```
 
 Start the API in one terminal:
@@ -92,7 +100,7 @@ The application runs at `http://localhost:5173`. The API health endpoint is avai
 - [x] Design a reusable UI component system
 - [x] Set up the React and TypeScript front end
 - [x] Set up the Node.js and Express back end
-- [ ] Create the PostgreSQL database and REST API
+- [x] Create the PostgreSQL database and REST API
 - [ ] Implement registration, login and protected routes
 - [ ] Develop client profile creation, viewing, editing and archiving
 - [ ] Implement follow-up date management and overdue alerts
